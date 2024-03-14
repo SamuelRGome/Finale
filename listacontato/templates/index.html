@@ -31,8 +31,8 @@
 		<section class="contacts-library">
 			<ul class="contacts-list">
 				{% for contato in contatos reversed %}
-				
-				<a href="contact-profile.html">
+
+				<a href="{%url 'profile' contato.id%}">
 					<div class="contact-section">
 						<li class="list__item">
 							<p class="contact-name">{{contato.nome_completo | title }}</p>
@@ -45,6 +45,7 @@
 						</li>
 					</div>
 				</a>
+					
 
 				<hr>
 				{% endfor %}
