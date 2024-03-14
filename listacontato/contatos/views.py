@@ -18,3 +18,6 @@ def addContact(request):
         novo_contato.save()
         return redirect('/')
     return render(request, 'new.html')
+
+def contactProfile(request, pk):
+    return render(request, 'contact-profile.html')
