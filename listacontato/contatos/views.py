@@ -33,6 +33,13 @@ def editContact(request, pk):
         contact.numero = request.POST['phone-number']
         contact.endereco = request.POST['address']
         contact.save()
-
         return redirect('/profile/' + str(contact.id))
     return render(request, 'edit.html' , {'contact': contact})
+
+def deleteContact(request, pk):
+    contact = Contato.objects.get(id=pk)
+
+    if request.method == 'POST':
+        contact.delete()
+        return redirect('/')
+    return render(request, 'delete.html', {'contact': contact})
