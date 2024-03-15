@@ -20,4 +20,9 @@ def addContact(request):
     return render(request, 'new.html')
 
 def contactProfile(request, pk):
-    return render(request, 'contact-profile.html')
+    contact = Contato.objects.get(id=pk)
+    return render(request, 'contact-profile.html', {'contact': contact})
+
+def editContact(request, pk):
+    contact = Contato.objects.get(id=pk) 
+    return render(request, 'edit.html' , {'contact': contact})

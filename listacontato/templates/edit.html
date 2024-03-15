@@ -1,9 +1,10 @@
+{%load static%}
 <!DOCTYPE html>
 <html>
 <head>
 	<meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="style-edit.css">
+    <link rel="stylesheet" type="text/css" href="{% static 'style-edit.css'%}">
 	
 	<link rel="preconnect" href="https://fonts.gstatic.com">
 	<link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
@@ -21,8 +22,8 @@
 			</a>
 
 			<div class="hero-info">
-				<h1 class="name">Bia/h1>
-				<p class="relationship-hero">Amiga</p>
+				<h1 class="name">{{contact.nome_completo | title}}</h1>
+				<p class="relationship-hero">{{contact.relacao | title}}</p>
 			</div>
 		</header>
 
@@ -30,39 +31,37 @@
 
 			<div class="info-line">
 				<i class="fas fa-phone icon-gradient"></i>
-				<input type="text" class="type" name="fullname" placeholder="Full Name">
+				<input type="text" class="type" name="fullname" placeholder="Full Name" value = "{{contact.nome_completo}}">
+					
 			</div>
 
 			<div class="info-line">
 				<i class="fas fa-user-circle icon-gradient"></i>
-				<input type="text" class="type" name="relationship" placeholder="Relationship">
+				<input type="text" class="type" name="relationship" placeholder="Relationship" value = "{{contact.relacao}}">
 			</div>
 
 		
 
 			<div class="info-line">
 				<i class="fas fa-sms icon-gradient"></i>
-				<input type="text" class="type" name="phone-number" placeholder="Phone Number">
+				<input type="text" class="type" name="phone-number" placeholder="Phone Number" value = "{{contact.numero}}">
 			</div>
 
 			
 
 			<div  class="info-line">
 				<i class="fas fa-envelope icon-gradient"></i>
-				<input type="text" class="type" name="e-mail" placeholder="Email">
+				<input type="text" class="type" name="e-mail" placeholder="Email" value = "{{contact.email}}">
 			</div>
 
 			
 
 			<div class="info-line">
 				<i class="fas fa-map-marker-alt icon-gradient location"></i>
-				<input type="text" class="type" name="address" placeholder="Address">
+				<input type="text" class="type" name="address" placeholder="Address" value = "{{contact.endereco}}">
 			</div>
 			
-			<div class="info-line">
-				<i class="fas fa-map-marker-alt icon-gradient location"></i>
-				<input type="text" class="type" name="email" placeholder="Email">
-			</div>
+			
 		</section>
 
 		<section class="button-container">
