@@ -4,7 +4,13 @@ from .models import Contato
 # Create your views here.
 def index(request):
     contatos = Contato.objects.all()
-    return render(request, 'index.html',{'contatos': contatos})
+    busca_input = request.GET.get('search-area')
+    if busca_input:
+        contatos = Contato.objects.filter(nome_completo__icontains=busca_input)
+    else:
+        contato = Contato.objects.all()
+        busca_input = ''
+    return render(request, 'index.html',{'contatos': contatos, 'busca_input': busca_input})
 
 def addContact(request):
     if request.method == 'POST':
