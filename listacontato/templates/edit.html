@@ -17,7 +17,7 @@
 	<div class="container">
 		<header class="hero">
 			
-			<a href="contact-profile.html">
+			<a href="{% url 'profile' contact.id %}">
 			     <i class="fas fa-chevron-circle-left back-btn"></i>
 			</a>
 
@@ -26,59 +26,61 @@
 				<p class="relationship-hero">{{contact.relacao | title}}</p>
 			</div>
 		</header>
+		<form action="" method="POST">
+			{%csrf_token%}
+			<section class="contact-info">
 
-		<section class="contact-info">
-
-			<div class="info-line">
-				<i class="fas fa-phone icon-gradient"></i>
-				<input type="text" class="type" name="fullname" placeholder="Full Name" value = "{{contact.nome_completo}}">
+				<div class="info-line">
+					<i class="fas fa-phone icon-gradient"></i>
+					<input type="text" class="type" name="fullname" placeholder="Full Name" value = "{{contact.nome_completo}}">
 					
-			</div>
+				</div>
 
-			<div class="info-line">
-				<i class="fas fa-user-circle icon-gradient"></i>
-				<input type="text" class="type" name="relationship" placeholder="Relationship" value = "{{contact.relacao}}">
-			</div>
+				<div class="info-line">
+					<i class="fas fa-user-circle icon-gradient"></i>
+					<input type="text" class="type" name="relationship" placeholder="Relationship" value = "{{contact.relacao}}">
+				</div>
 
 		
 
-			<div class="info-line">
-				<i class="fas fa-sms icon-gradient"></i>
-				<input type="text" class="type" name="phone-number" placeholder="Phone Number" value = "{{contact.numero}}">
-			</div>
-
-			
-
-			<div  class="info-line">
-				<i class="fas fa-envelope icon-gradient"></i>
-				<input type="text" class="type" name="e-mail" placeholder="Email" value = "{{contact.email}}">
-			</div>
-
-			
-
-			<div class="info-line">
-				<i class="fas fa-map-marker-alt icon-gradient location"></i>
-				<input type="text" class="type" name="address" placeholder="Address" value = "{{contact.endereco}}">
-			</div>
-			
-			
-		</section>
-
-		<section class="button-container">
-			<div class="update-contact">
-				<i  class="fas fa-check-circle icon-gradient"></i>
-				<button class="button">Salvar Contato</button>
-			</div>
-		</section>
-
-		<section class="button-container">
-			<a href="delete.html">
-				<div class="update-contact">
-					<i class="fas fa-trash icon-gradient"></i>
-					<button class="button">Deletar Contato</button>
+				<div class="info-line">
+					<i class="fas fa-sms icon-gradient"></i>
+					<input type="text" class="type" name="phone-number" placeholder="Phone Number" value = "{{contact.numero}}">
 				</div>
-			</a>
-		</section>
+
+			
+
+				<div  class="info-line">
+					<i class="fas fa-envelope icon-gradient"></i>
+					<input type="text" class="type" name="e-mail" placeholder="Email" value = "{{contact.email}}">
+				</div>
+
+			
+
+				<div class="info-line">
+					<i class="fas fa-map-marker-alt icon-gradient location"></i>
+					<input type="text" class="type" name="address" placeholder="Address" value = "{{contact.endereco}}">
+				</div>
+			
+			
+			</section>
+
+			<section class="button-container">
+				<div class="update-contact">
+					<i  class="fas fa-check-circle icon-gradient"></i>
+					<button class="button">Salvar Contato</button>
+				</div>
+			</section>
+
+			<section class="button-container">
+				<a href="delete.html">
+					<div class="update-contact">
+						<i class="fas fa-trash icon-gradient"></i>
+						<button class="button">Deletar Contato</button>
+					</div>
+				</a>
+			</section>
+		</form>
 	</div>
 
 
