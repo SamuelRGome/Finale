@@ -1,1 +1,2 @@
 # Finale
+O programa listacontato emula uma lista de contatos real de um celular na web, ele permite a utilização de todas as funções do CRUD tornando possível adicionar, ler, editar e remover contatos que ficarão salvos a vontade.
